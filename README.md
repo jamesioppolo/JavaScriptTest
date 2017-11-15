@@ -22,6 +22,18 @@ At the end, make sure you send us the GitHub link to your fork and publish with:
 ng build --output-path docs
 ```
 
+In your forked repository, make sure the GitHub settings publish the /docs folder and update the README.md link from:
+
+```
+http://infomedialtd.github.io/JavaScriptTest/
+```
+to
+```
+http://???.github.io/JavaScriptTest/
+```
+Instructions for doing that can be found here:
+https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#publishing-your-github-pages-site-from-a-docs-folder-on-your-master-branch
+
 Make sure your tests pass with:
 
 ```
