@@ -1,18 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <h5>Enter a search term below to search the list of Shakespeare's Sonnets</h5>
+  <div class="text-center">
+    <h1 style="padding-top:20px">
+      Welcome to {{title}}!
+    </h1>
+    <h5>Enter a search term below to search the list of Shakespeare's Sonnets</h5>
+  </div>
 
   <searchComponent (searchString)="performSearch($event)"></searchComponent>
 
-  <div class="alert alert-danger" *ngIf="filteredSonnets.length === 0 && hasPerformedFirstSearch">
+  <div class="alert alert-danger text-center" *ngIf="filteredSonnets.length === 0 && hasPerformedFirstSearch">
       <i class="fa fa-times-circle-o" style="padding-right: 5px" aria-hidden="true"></i>
       No Sonnets found countaining text '{{searchTerm}}'
   </div>
 
-  <div class="alert alert-success" *ngIf="filteredSonnets.length > 0">
+  <div class="alert alert-success text-center" *ngIf="filteredSonnets.length > 0">
       <i class="fa fa-check-circle" aria-hidden="true"></i>
       {{filteredSonnets.length}} sonnets found containing text '{{searchTerm}}'
   </div>

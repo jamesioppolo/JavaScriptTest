@@ -2,12 +2,13 @@ import { Component, Output, EventEmitter } from "@angular/core";
 
 @Component({
     selector: 'searchComponent',
-    templateUrl: './SearchComponent.html'
+    templateUrl: './SearchComponent.html',
+    styles: [`.component-top-padding { padding-top: 15px }`]
 })
 
 export class SearchComponent {
     @Output() searchString = new EventEmitter<string>();
-
+    style="padding-top: 15px"
     private searchTerm: string;
 
     private search()

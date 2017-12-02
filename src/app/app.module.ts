@@ -3,6 +3,8 @@ import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
+import { PopoverModule } from 'ngx-bootstrap/popover';
+
 import { SearchComponent } from 'app/Components/SearchComponent';
 import { SonnetService } from './Services/SonnetService';
 
@@ -13,7 +15,8 @@ import { SonnetService } from './Services/SonnetService';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    PopoverModule.forRoot()
   ],
   providers: [
     SonnetService

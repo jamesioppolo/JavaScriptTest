@@ -1,7 +1,13 @@
-<div class="form-group"
+<div class="form-group text-center component-top-padding"
      (keydown)="keyDownFunction($event)">
     <label class="col-xs-4 control-label"
-            for="searchTerm" >Search Term
+            for="searchTerm">Search Term
+            <i  class="fa fa-info-circle" 
+                aria-hidden="true"
+                popoverTitle="Information"
+                popover="Enter search term and press enter or click search button to show results"
+                [outsideClick]="true"
+            ></i>
     </label>
     <div class="col-xs-8">
         <input type="text" 
