@@ -23,4 +23,9 @@ export class SearchComponent {
             this.search();
         }
     }
+
+    reset()
+    {
+        this.searchTerm = '';
+    }
 }

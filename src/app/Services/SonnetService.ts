@@ -34,6 +34,7 @@ export class SonnetService
         // Deep copy the original sonnets so that all original sonnet
         // array is never directly modified.
         this.sonnets = Object.assign([], this.originalSonnets);
+        this.assignToLocalStorage();        
     }
 
     originalSonnets: SonnetModel[] = [

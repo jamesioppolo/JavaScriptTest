@@ -9,6 +9,11 @@
 
     <searchComponent (searchString)="performSearch($event)"></searchComponent>
 
+    <div class="alert alert-warning text-center" *ngIf="hasBeenReset">
+        <i class="fa fa-check-circle" aria-hidden="true"></i>
+        Sonnets have been reset back to their original values
+    </div>
+
     <div class="alert alert-danger text-center" *ngIf="filteredSonnets.length === 0 && hasPerformedFirstSearch">
         <i class="fa fa-times-circle-o fa-times-right-adjustment" aria-hidden="true"></i>
         No Sonnets found countaining text '{{searchTerm}}'
@@ -25,7 +30,22 @@
             <thead>
                 <td>Number</td>
                 <td>Lines</td>
-                <td>Edit</td>
+                <td>
+                    Edit
+                    <ng-template #popTemplate>
+                        Click the edit button to edit any sonnet. Click below to reset to original
+                        <button class="btn btn-danger"
+                                (click)="resetToOriginalSonnets()">
+                                Reset
+                        </button>
+                    </ng-template>
+                    <i  class="fa fa-info-circle" 
+                        aria-hidden="true"
+                        popoverTitle="Information"
+                        [popover]="popTemplate"
+                        [outsideClick]="true">
+                    </i>  
+                </td>
             </thead>
             <tbody>
                 <tr *ngFor="let sonnet of filteredSonnets">

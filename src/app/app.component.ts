@@ -16,6 +16,7 @@ export class AppComponent {
     title = "Shakespeare's Sonnets";
     searchTerm: string = '';
     hasPerformedFirstSearch = false;
+    hasBeenReset = false;
     filteredSonnets = new Array<SonnetModel>();
     currentlyEditingSonnetNumber = -1;
 
@@ -28,9 +29,10 @@ export class AppComponent {
         this.resetEditMode();
         this.searchTerm = searchString;
         this.hasPerformedFirstSearch = true;
+        this.hasBeenReset = false;
         if (searchString === '')
         {
-            this.filteredSonnets = new Array<SonnetModel>();
+            this.resetFilteredSonnets();
         } else {
 
             // The filtered sonnets from the search string is a shallow copy. This means that the
@@ -51,11 +53,6 @@ export class AppComponent {
         }
     }
 
-    updateLocalStorage()
-    {
-        this.sonnetService.assignToLocalStorage();
-    }
-
     isEditing(sonnetNumber: number)
     {
         return this.currentlyEditingSonnetNumber === sonnetNumber;
@@ -73,5 +70,25 @@ export class AppComponent {
     resetEditMode()
     {
         this.currentlyEditingSonnetNumber = -1;
+    }
+
+    resetToOriginalSonnets()
+    {
+        this.sonnetService.resetToOriginalSonnets();
+        this.resetEditMode();
+        this.resetFilteredSonnets();
+        this.resetSearchTerm();
+        this.hasPerformedFirstSearch = false;
+        this.hasBeenReset = true;
+    }
+
+    resetFilteredSonnets()
+    {
+        this.filteredSonnets = new Array<SonnetModel>();
+    }
+
+    resetSearchTerm()
+    {
+        this.searchTerm = '';
     }
 }
