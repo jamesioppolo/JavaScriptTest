@@ -1,20 +1,20 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div class="container">
   <h1>
     Welcome to {{title}}!
   </h1>
-</div>
-<h2>List of sonnets: </h2>
-<table>
-  <thead>
-  <td>Number</td>
-  <td>Lines</td>
-  </thead>
-  <tbody>
-  <tr *ngFor="let sonnet of sonnets">
-    <td>{{sonnet.number}}</td>
-    <td>{{sonnet.lines}}</td>
-  </tr>
-  </tbody>
-</table>
 
+  <h2>List of sonnets: </h2>
+  <table class="table">
+    <thead>
+    <td>Number</td>
+    <td>Lines</td>
+    </thead>
+    <tbody>
+    <tr *ngFor="let sonnet of sonnets">
+      <td>{{sonnet.number}}</td>
+      <td>{{sonnet.lines}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
