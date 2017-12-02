@@ -31,6 +31,10 @@ export class DisplayComponent {
         this.searchEventSubscription = this.searchService.getEventObserveable().subscribe(() => this.performSearch());
     }
 
+    ngOnDestroy(){
+        this.searchEventSubscription.unsubscribe();
+    }
+
     performSearch()
     {
         this.searchTerm = this.searchService.searchTerm;
