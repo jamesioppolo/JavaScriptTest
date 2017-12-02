@@ -75,7 +75,7 @@ export class DisplayComponent {
         return this.isEditing(sonnetNumber) ? 'Finish' : 'Edit';
     }
 
-    trackByFn(index: any, item: any) {
+    sonnetTrackByFunction(index: any, item: any) {
         return index;
     }
 

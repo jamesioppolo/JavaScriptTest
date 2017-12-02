@@ -22,17 +22,19 @@
             <td>
                 Edit
                 <ng-template #popTemplate>
-                    Click the edit button to edit any sonnet. Click below to reset to original
-                    <button class="btn btn-danger"
-                            (click)="resetToOriginalSonnets()">
-                            Reset
-                    </button>
+                    <div class="text-center">
+                        Click the edit button to edit any sonnet. Click below to reset to original
+                        <button class="btn btn-danger"
+                                (click)="resetToOriginalSonnets()">
+                                Reset
+                        </button>
+                    </div>
                 </ng-template>
-                <i  class="fa fa-info-circle" 
-                    aria-hidden="true"
-                    popoverTitle="Information"
-                    [popover]="popTemplate"
-                    [outsideClick]="true">
+                <i class="fa fa-info-circle" 
+                   aria-hidden="true"
+                   popoverTitle="Information"
+                   [popover]="popTemplate"
+                   [outsideClick]="true">
                 </i>  
             </td>
         </thead>
@@ -45,11 +47,11 @@
                             <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
                             Text edits are applied immediately. Changes can be reverted using the reset functionality
                         </div>
-                        <span *ngFor="let line of sonnet.lines; let i = index; trackBy:trackByFn">
+                        <span *ngFor="let line of sonnet.lines; let i = index; trackBy: sonnetTrackByFunction">
                             <input type="text"
-                                    class="form-control"
-                                    [(ngModel)]="sonnet.lines[i]"
-                                    (ngModelChange)="sonnetService.assignToLocalStorage()">
+                                   class="form-control"
+                                   [(ngModel)]="sonnet.lines[i]"
+                                   (ngModelChange)="sonnetService.assignToLocalStorage()">
                         </span>
                     </div>
                     <div *ngIf="!isEditing(sonnet.number)">

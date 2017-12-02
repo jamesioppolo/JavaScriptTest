@@ -13,7 +13,7 @@ export class SearchComponent {
     {
     }
 
-    private keyDownFunction(event)
+    private keyDownFunction(event: any)
     {
         if(event.keyCode == 13) 
         {
