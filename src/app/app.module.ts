@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 
+import { SonnetService } from './Services/SonnetService';
+
 @NgModule({
   declarations: [
     AppComponent
@@ -9,7 +11,9 @@ import { AppComponent } from './app.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [
+    SonnetService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

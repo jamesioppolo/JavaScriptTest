@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { sonnets } from './sonnets';
+import { SonnetService } from 'app/Services/SonnetService';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,8 @@ import { sonnets } from './sonnets';
 })
 export class AppComponent {
   title = "Shakespeare's Sonnets";
-  sonnets = sonnets;
+ 
+  constructor(private sonnetService: SonnetService)
+  {
+  }
 }

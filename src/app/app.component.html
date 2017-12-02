@@ -11,7 +11,7 @@
     <td>Lines</td>
     </thead>
     <tbody>
-      <tr *ngFor="let sonnet of sonnets">
+      <tr *ngFor="let sonnet of sonnetService.sonnets">
         <td>{{sonnet.number}}</td>
         <td>
             <span *ngFor="let sonnetLine of sonnet.lines">
