@@ -11,10 +11,14 @@
     <td>Lines</td>
     </thead>
     <tbody>
-    <tr *ngFor="let sonnet of sonnets">
-      <td>{{sonnet.number}}</td>
-      <td>{{sonnet.lines}}</td>
-    </tr>
+      <tr *ngFor="let sonnet of sonnets">
+        <td>{{sonnet.number}}</td>
+        <td>
+            <span *ngFor="let sonnetLine of sonnet.lines">
+              {{sonnetLine}}
+            </span>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
