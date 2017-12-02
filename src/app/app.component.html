@@ -4,6 +4,8 @@
     Welcome to {{title}}!
   </h1>
 
+  <searchComponent (searchString)="performSearch($event)"></searchComponent>
+
   <h2>List of sonnets: </h2>
   <table class="table">
     <thead>

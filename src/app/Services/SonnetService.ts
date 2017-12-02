@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { SonnetModel } from 'app/models/SonnetModel';
+import { SonnetModel } from 'app/Models/SonnetModel';
 
 @Injectable()
 export class SonnetService

@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label class="col-xs-4 control-label"
+            for="searchTerm" >Search Term
+    </label>
+    <div class="col-xs-8">
+        <input type="text" 
+                id="searchTerm"
+                name="searchTerm"
+                [(ngModel)]="searchTerm"
+                class="form-control"
+                required>
+    </div>
+    <div class="col-xs-12">
+        <button class="btn btn-default"
+                (click)="search()">Search
+                <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+    </div>
+</div>
