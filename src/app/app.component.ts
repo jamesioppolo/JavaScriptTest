@@ -13,6 +13,7 @@ import * as _ from 'lodash';
 export class AppComponent {
     title = "Shakespeare's Sonnets";
     searchTerm: string = '';
+    hasPerformedFirstSearch = false;
     filteredSonnets = new Array<SonnetModel>();
 
     constructor(private sonnetService: SonnetService)
@@ -22,7 +23,7 @@ export class AppComponent {
     performSearch(searchString: string)
     {
         this.searchTerm = searchString;
-
+        this.hasPerformedFirstSearch = true;
         if (searchString === '')
         {
             this.filteredSonnets = new Array<SonnetModel>();

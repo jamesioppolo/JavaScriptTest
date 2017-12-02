@@ -7,7 +7,7 @@
 
   <searchComponent (searchString)="performSearch($event)"></searchComponent>
 
-  <div class="alert alert-danger" *ngIf="filteredSonnets.length === 0 && searchTerm !== ''">
+  <div class="alert alert-danger" *ngIf="filteredSonnets.length === 0 && hasPerformedFirstSearch">
       <i class="fa fa-times-circle-o" style="padding-right: 5px" aria-hidden="true"></i>
       No Sonnets found countaining text '{{searchTerm}}'
   </div>
