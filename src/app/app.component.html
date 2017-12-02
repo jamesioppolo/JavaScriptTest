@@ -3,24 +3,27 @@
   <h1>
     Welcome to {{title}}!
   </h1>
+  <h5>Enter a search term below to search the list of Shakespeare's Sonnets</h5>
 
   <searchComponent (searchString)="performSearch($event)"></searchComponent>
 
-  <h2>List of sonnets: </h2>
-  <table class="table">
-    <thead>
-    <td>Number</td>
-    <td>Lines</td>
-    </thead>
-    <tbody>
-      <tr *ngFor="let sonnet of sonnetService.sonnets">
-        <td>{{sonnet.number}}</td>
-        <td>
-            <span *ngFor="let sonnetLine of sonnet.lines">
-              {{sonnetLine}}
-            </span>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div *ngIf="filteredSonnets.length > 0">
+    <h2>List of sonnets: </h2>
+    <table class="table">
+      <thead>
+      <td>Number</td>
+      <td>Lines</td>
+      </thead>
+      <tbody>
+        <tr *ngFor="let sonnet of filteredSonnets">
+          <td>{{sonnet.number}}</td>
+          <td>
+              <span *ngFor="let sonnetLine of sonnet.lines">
+                {{sonnetLine}}
+              </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>
