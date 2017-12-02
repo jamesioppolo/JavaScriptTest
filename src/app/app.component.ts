@@ -22,8 +22,11 @@ export class AppComponent {
     performSearch(searchString: string)
     {
         this.searchTerm = searchString;
-        if (searchString !== '')
+
+        if (searchString === '')
         {
+            this.filteredSonnets = new Array<SonnetModel>();
+        } else {
             this.filteredSonnets = _.filter(this.sonnetService.sonnets, function(sonnet) {
                 return _.some(sonnet.lines, _.method('includes', searchString));
             });
