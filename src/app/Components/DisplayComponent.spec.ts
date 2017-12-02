@@ -53,7 +53,7 @@ describe('DisplayComponent', () => {
     }));
 
     
-    it(`edit button should read 'Edit' when editing a sonnet`, async(() => {
+    it(`edit button should read 'Edit' when not editing a sonnet`, async(() => {
         // arrange
         comp.currentlyEditingSonnetNumber = 1;
 
