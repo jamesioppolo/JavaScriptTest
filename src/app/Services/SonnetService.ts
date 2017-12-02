@@ -5,7 +5,38 @@ import { SonnetModel } from 'app/Models/SonnetModel';
 @Injectable()
 export class SonnetService
 {
-    sonnets: SonnetModel[] = [
+    sonnets: SonnetModel[];
+
+    constructor()
+    {
+        this.initialiseFromLocalStorage();
+    }
+
+    private initialiseFromLocalStorage()
+    {
+        let sonnetsFromStorage = localStorage.getItem('sonnets');
+        if (sonnetsFromStorage !== null)
+        {
+            this.sonnets = JSON.parse(sonnetsFromStorage);
+        }
+        else{
+            this.resetToOriginalSonnets();
+        }
+    }
+
+    public assignToLocalStorage()
+    {
+        localStorage.setItem('sonnets', JSON.stringify(this.sonnets));
+    }
+
+    public resetToOriginalSonnets()
+    {
+        // Deep copy the original sonnets so that all original sonnet
+        // array is never directly modified.
+        this.sonnets = Object.assign([], this.originalSonnets);
+    }
+
+    originalSonnets: SonnetModel[] = [
         {
             "number": "1",
             "lines": [

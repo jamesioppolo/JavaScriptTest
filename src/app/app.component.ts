@@ -32,6 +32,9 @@ export class AppComponent {
         {
             this.filteredSonnets = new Array<SonnetModel>();
         } else {
+
+            // The filtered sonnets from the search string is a shallow copy. This means that the
+            // filtered elements refer directly back to the elements in the sonnet service.
             this.filteredSonnets = _.filter(this.sonnetService.sonnets, function(sonnet) {
                 return _.some(sonnet.lines, _.method('includes', searchString));
             });
@@ -46,6 +49,11 @@ export class AppComponent {
         } else {
             this.currentlyEditingSonnetNumber = sonnetNumber;
         }
+    }
+
+    updateLocalStorage()
+    {
+        this.sonnetService.assignToLocalStorage();
     }
 
     isEditing(sonnetNumber: number)

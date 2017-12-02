@@ -39,7 +39,8 @@
                             <span *ngFor="let line of sonnet.lines; let i = index; trackBy:trackByFn">
                                 <input type="text"
                                         class="form-control"
-                                        [(ngModel)]="sonnet.lines[i]">
+                                        [(ngModel)]="sonnet.lines[i]"
+                                        (ngModelChange)="sonnetService.assignToLocalStorage()">
                             </span>
                         </div>
                         <div *ngIf="!isEditing(sonnet.number)">
