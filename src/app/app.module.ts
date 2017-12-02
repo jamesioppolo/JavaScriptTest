@@ -6,12 +6,15 @@ import { AppComponent } from './app.component';
 import { PopoverModule } from 'ngx-bootstrap/popover';
 
 import { SearchComponent } from 'app/Components/SearchComponent';
+import { DisplayComponent } from 'app/Components/DisplayComponent';
 import { SonnetService } from './Services/SonnetService';
+import { SearchService } from 'app/Services/SearchService';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchComponent
+    SearchComponent,
+    DisplayComponent
   ],
   imports: [
     BrowserModule,
@@ -19,7 +22,8 @@ import { SonnetService } from './Services/SonnetService';
     PopoverModule.forRoot()
   ],
   providers: [
-    SonnetService
+    SonnetService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

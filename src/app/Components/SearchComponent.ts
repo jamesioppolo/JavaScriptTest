@@ -1,5 +1,7 @@
 import { Component, Output, EventEmitter } from "@angular/core";
 
+import { SearchService } from "app/Services/SearchService";
+
 @Component({
     selector: 'searchComponent',
     templateUrl: './SearchComponent.html',
@@ -7,16 +9,11 @@ import { Component, Output, EventEmitter } from "@angular/core";
 })
 
 export class SearchComponent {
-    @Output() searchString = new EventEmitter<string>();
-    
-    private searchTerm: string;
-
-    private search()
+    constructor(private searchService: SearchService)
     {
-        this.searchString.emit(this.searchTerm);
     }
 
-    keyDownFunction(event)
+    private keyDownFunction(event)
     {
         if(event.keyCode == 13) 
         {
@@ -24,8 +21,9 @@ export class SearchComponent {
         }
     }
 
-    reset()
+    private search()
     {
-        this.searchTerm = '';
+        this.searchService.searchTermUpdated();
     }
+
 }
