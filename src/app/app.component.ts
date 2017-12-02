@@ -17,6 +17,7 @@ export class AppComponent {
     searchTerm: string = '';
     hasPerformedFirstSearch = false;
     filteredSonnets = new Array<SonnetModel>();
+    currentlyEditingSonnetNumber = -1;
 
     constructor(private sonnetService: SonnetService)
     {
@@ -35,4 +36,28 @@ export class AppComponent {
             });
         } 
     }
+
+    setToEditMode(sonnetNumber: number)
+    {
+        if (this.isEditing(sonnetNumber))
+        {
+            this.currentlyEditingSonnetNumber = -1;
+        } else {
+          this.currentlyEditingSonnetNumber = sonnetNumber;
+        }
+    }
+
+    isEditing(sonnetNumber: number)
+    {
+        return this.currentlyEditingSonnetNumber === sonnetNumber;
+    }
+
+    getEditButtonTextFor(sonnetNumber: number)
+    {
+        return this.isEditing(sonnetNumber) ? 'Finish' : 'Edit';
+    }
+
+    trackByFn(index: any, item: any) {
+      return index;
+   }
 }
