@@ -8,7 +8,7 @@ import { Component, Output, EventEmitter } from "@angular/core";
 
 export class SearchComponent {
     @Output() searchString = new EventEmitter<string>();
-    style="padding-top: 15px"
+    
     private searchTerm: string;
 
     private search()
