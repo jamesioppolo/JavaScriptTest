@@ -14,4 +14,12 @@ export class SearchComponent {
     {
         this.searchString.emit(this.searchTerm);
     }
+
+    keyDownFunction(event)
+    {
+        if(event.keyCode == 13) 
+        {
+            this.search();
+        }
+    }
 }
