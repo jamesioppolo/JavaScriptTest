@@ -1,4 +1,4 @@
-import { TestBed, async, getTestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, async, getTestBed } from '@angular/core/testing';
 import { FormsModule } from '@angular/forms';
 import { Component } from '@angular/core';
 import { PopoverModule } from 'ngx-bootstrap';
@@ -12,6 +12,9 @@ export class MockSearchService {
 }
 
 describe('SearchComponent', () => {
+    let fixture: ComponentFixture<SearchComponent>;
+    let comp: SearchComponent;
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [
@@ -30,17 +33,37 @@ describe('SearchComponent', () => {
         }).compileComponents();
     }));
 
+    beforeEach(() =>
+    {
+        fixture = TestBed.createComponent(SearchComponent);
+        comp = fixture.debugElement.componentInstance;
+    });
+
     it(`should call search term updated when enter button pressed`, async(() => {
         // arrange
-        const fixture = TestBed.createComponent(SearchComponent);
-        const app = fixture.debugElement.componentInstance;
         var searchService = getTestBed().get(SearchService);
         spyOn(searchService, 'searchTermUpdated');
 
         // act
-        app.keyDownFunction({ keyCode : 13 });
+        comp.keyDownFunction({ keyCode : 13 });
 
         // assert
         expect(searchService.searchTermUpdated).toHaveBeenCalled();
+    }));
+
+    it(`should not search term for non-enter key press`, async(() => {
+        // arrange
+        var searchService = getTestBed().get(SearchService);
+        spyOn(searchService, 'searchTermUpdated');
+
+        // act and assert
+        for (let keycode = 0; keycode < 255; keycode++)
+        {
+            if (keycode !== 13)
+            {
+                comp.keyDownFunction({ keyCode : keycode });
+                expect(searchService.searchTermUpdated).not.toHaveBeenCalled();
+            }
+        }
     }));
 });
