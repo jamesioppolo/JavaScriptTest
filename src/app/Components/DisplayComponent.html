@@ -5,12 +5,12 @@
 
 <div class="alert alert-danger text-center" *ngIf="filteredSonnets.length === 0 && hasPerformedFirstSearch">
     <i class="fa fa-times-circle-o fa-times-right-adjustment" aria-hidden="true"></i>
-    No Sonnets found countaining text '{{searchService.searchTerm}}'
+    No Sonnets found countaining text '{{searchTerm}}'
 </div>
 
 <div class="alert alert-success text-center" *ngIf="filteredSonnets.length > 0">
     <i class="fa fa-check-circle" aria-hidden="true"></i>
-    {{filteredSonnets.length}} sonnets found containing text '{{searchService.searchTerm}}'
+    {{filteredSonnets.length}} sonnets found containing text '{{searchTerm}}'
 </div>
 
 <div *ngIf="filteredSonnets.length > 0">

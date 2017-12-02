@@ -19,6 +19,7 @@ export class DisplayComponent {
     
     searchEventSubscription: Subscription;
 
+    searchTerm = '';
     hasPerformedFirstSearch = false;
     hasBeenReset = false;
     filteredSonnets = new Array<SonnetModel>();
@@ -32,6 +33,7 @@ export class DisplayComponent {
 
     performSearch()
     {
+        this.searchTerm = this.searchService.searchTerm;
         this.resetEditMode();
         this.hasPerformedFirstSearch = true;
         this.hasBeenReset = false;
@@ -42,9 +44,9 @@ export class DisplayComponent {
 
             // The filtered sonnets from the search string is a shallow copy. This means that the
             // filtered elements refer directly back to the elements in the sonnet service.
-            let searchTerm = this.searchService.searchTerm;
+            let filterTerm = this.searchTerm;
             this.filteredSonnets = _.filter(this.sonnetService.sonnets, function(sonnet) {
-                return _.some(sonnet.lines, _.method('includes', searchTerm));
+                return _.some(sonnet.lines, _.method('includes', filterTerm));
             });
         } 
     }
