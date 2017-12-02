@@ -1,9 +1,9 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-  <div class="text-center">
-    <h1 class="title-top-space">
-      Welcome to {{title}}!
-    </h1>
+    <div class="text-center">
+        <h1 class="title-top-space">
+          Welcome to {{title}}!
+        </h1>
     <h5>Enter a search term below to search the list of Shakespeare's Sonnets</h5>
   </div>
 
@@ -20,10 +20,10 @@
   </div>
 
   <div *ngIf="filteredSonnets.length > 0">
-    <h2 class="text-center">List of sonnets: </h2>
-    <table class="table">
-      <thead>
-      <td>Number</td>
+      <h2 class="text-center">List of sonnets: </h2>
+      <table class="table">
+          <thead>
+          <td>Number</td>
       <td>Lines</td>
       <td>Edit</td>
       </thead>
@@ -32,6 +32,10 @@
           <td>{{sonnet.number}}</td>
           <td>
             <div *ngIf="isEditing(sonnet.number)">
+                <div class="alert alert-warning text-center" *ngIf="filteredSonnets.length > 0">
+                    <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                    Text edits are applied immediately and cannot be undone
+                </div>
               <span *ngFor="let line of sonnet.lines; let i = index; trackBy:trackByFn">
                 <input type="text"
                     class="form-control"

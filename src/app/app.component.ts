@@ -25,6 +25,7 @@ export class AppComponent {
 
     performSearch(searchString: string)
     {
+        this.resetEditMode();
         this.searchTerm = searchString;
         this.hasPerformedFirstSearch = true;
         if (searchString === '')
@@ -41,9 +42,9 @@ export class AppComponent {
     {
         if (this.isEditing(sonnetNumber))
         {
-            this.currentlyEditingSonnetNumber = -1;
+            this.resetEditMode();
         } else {
-          this.currentlyEditingSonnetNumber = sonnetNumber;
+            this.currentlyEditingSonnetNumber = sonnetNumber;
         }
     }
 
@@ -58,6 +59,11 @@ export class AppComponent {
     }
 
     trackByFn(index: any, item: any) {
-      return index;
-   }
+        return index;
+    }
+
+    resetEditMode()
+    {
+        this.currentlyEditingSonnetNumber = -1;
+    }
 }
