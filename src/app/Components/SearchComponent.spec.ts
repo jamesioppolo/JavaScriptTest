@@ -39,7 +39,7 @@ describe('SearchComponent', () => {
         comp = fixture.debugElement.componentInstance;
     });
 
-    it(`should call search term updated when enter button pressed`, async(() => {
+    it(`should invoke searchTermUpdated() function when enter button pressed`, async(() => {
         // arrange
         var searchService = getTestBed().get(SearchService);
         spyOn(searchService, 'searchTermUpdated');
@@ -51,7 +51,7 @@ describe('SearchComponent', () => {
         expect(searchService.searchTermUpdated).toHaveBeenCalled();
     }));
 
-    it(`should not search term for non-enter key press`, async(() => {
+    it(`should not invoke searchTermUpdated() function for any non-enter key press`, async(() => {
         // arrange
         var searchService = getTestBed().get(SearchService);
         spyOn(searchService, 'searchTermUpdated');
