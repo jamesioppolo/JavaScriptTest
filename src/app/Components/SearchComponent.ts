@@ -15,7 +15,7 @@ export class SearchComponent {
 
     private keyDownFunction(event: any)
     {
-        if(event.keyCode == 13) 
+        if (event.keyCode == 13) 
         {
             this.search();
         }
